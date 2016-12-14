@@ -21,7 +21,7 @@ class Suket_controller extends CI_Controller {
 
 	public function cek_bio()
 	{
-		$nik = $this->input->post('nik');
+		$nik = trim($this->input->post('nik'));
 
 		//cek nik
 		$cek  = $this->bio_model->cek_nik($nik);
@@ -76,7 +76,7 @@ class Suket_controller extends CI_Controller {
 
 		$input = $this->input;
 
-		$data['nik'] = $input->post('nik');
+		$data['nik'] = trim($input->post('nik'));
 		$data['nama']  = $input->post('nama');
 		$data['tempat'] = $input->post('tempat_lahir');
 		$data['tl']  = $input->post('tanggal_lahir');
@@ -179,6 +179,12 @@ class Suket_controller extends CI_Controller {
 		echo $this->datatables->generate();
 	}
 
+	public function input_biodata()
+	{
+		$data['title'] = "Input Biodata";
+		$this->template->display('bio/input_biodata', $data);
+	}
+
 	public function detail_cetak()
 	{
 		$data['title'] = "Detail Biodata Suket";
@@ -189,25 +195,77 @@ class Suket_controller extends CI_Controller {
 		$this->template->display('suket/detail_cetak', $data);
 	}
 
-
-	public function coba_seribu()
+	public function action_biodata()
 	{
-		$no  = 1;
+		$input = $this->input;
 
-		for ($i=1; $i <= 1000 ; $i++) { 
+		$data['nik'] = trim($input->post('nik'));
+		$data['nama']  = $input->post('nama');
+		$data['tempat'] = $input->post('tempat_lahir');
+		$data['tl']  = $input->post('tanggal_lahir');
+		$data['jk'] = $input->post('jk');
+		$data['alamat'] = $input->post('alamat');
+		$data['rt_rw']  = $input->post('rt_rw');
+		$data['desa'] = $input->post('desa');
+		$data['kecamatan'] = $input->post('kecamatan');
+		$data['agama'] = $input->post('agama');
+		$data['status'] = $input->post('status');
+		$data['pekerjaan'] = $input->post('pekerjaan');
+		$data['kewarganegaraan'] = $input->post('kewarganegaraan');
 
-			$record_nik = array(
-									"bio_id" => '',
-									"bio_nik" => "nik".$i
-								);
-			$this->bio_model->add($record_nik);
+		//cek nik
+		$cek_nik = $this->bio_model->cek_nik($data['nik']);
 
-			$record = array(
-								"suket_id" => '',
-								"bio_nik" => "nik".$i
+		if ($cek_nik->num_rows() > 0) 
+		{
+			$r = $cek_nik->row();
+			$e = explode("-", $data['tl']);
+			$t_lahir = $e[2]."-".$e[1]."-".$e[0];
+
+			$rec_nik = array(
+								"bio_nama" => $data['nama'],
+								"bio_tempat_lahir" => $data['tempat'],
+								"bio_tanggal_lahir" => $t_lahir,
+								"bio_jk" => $data['jk'],
+								"bio_alamat" => $data['alamat'],
+								"bio_rt_rw" => $data['rt_rw'],
+								"bio_desa" => $data['desa'],
+								"bio_kecamatan" => $data['kecamatan'],
+								"bio_agama" => $data['agama'],
+								"bio_status_perkawinan" => $data['status'],
+								"bio_pekerjaan" => $data['pekerjaan'],
+								"bio_kewarganegaraan" => $data['kewarganegaraan']
 							);
-			$this->suket_model->add($record);
-			echo $i."<br>";
+
+			$this->bio_model->edit($r->bio_id, $rec_nik);
+			$this->session->set_flashdata('success', '<div class="alert alert-success">Data Berhasil di Ubah</div>');
+			redirect('input_biodata','refresh');
+		}
+		else
+		{
+			$e = explode("-", $data['tl']);
+			$t_lahir = $e[2]."-".$e[1]."-".$e[0];
+
+			$rec_nik = array(
+								"bio_id" => '',
+								"bio_nik" => $data['nik'],
+								"bio_nama" => $data['nama'],
+								"bio_tempat_lahir" => $data['tempat'],
+								"bio_tanggal_lahir" => $t_lahir,
+								"bio_jk" => $data['jk'],
+								"bio_alamat" => $data['alamat'],
+								"bio_rt_rw" => $data['rt_rw'],
+								"bio_desa" => $data['desa'],
+								"bio_kecamatan" => $data['kecamatan'],
+								"bio_agama" => $data['agama'],
+								"bio_status_perkawinan" => $data['status'],
+								"bio_pekerjaan" => $data['pekerjaan'],
+								"bio_kewarganegaraan" => $data['kewarganegaraan']
+							);
+
+			$this->bio_model->add($rec_nik);
+			$this->session->set_flashdata('success', '<div class="alert alert-success">Data Berhasil di Tambah</div>');
+			redirect('input_biodata','refresh');
 		}
 	}
 

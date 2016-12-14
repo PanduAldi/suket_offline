@@ -39,7 +39,8 @@
                 "lengthMenu" : "_MENU_",
                 'infoEmpty' : "Data Masih Kosong",
                 'zeroRecords' : "Data yang dicari tidak ada"
-            }
+            },
+            "order" : [[0, "desc"]]
         });
 	})
 </script>

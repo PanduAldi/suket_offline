@@ -4,17 +4,20 @@
 	}
 </style>
 
+<div class="col-md-6 notif">
+	<?php echo $this->session->flashdata('success'); ?>
+</div>
 <div class="row">
-	<div class="col-md-7">
+	<div class="col-md-12">
 		<div class="box">
 			<div class="box-header with-border">
-              <h3 class="box-title">SURAT KETERANGAN KTP ELEKTRONIK</h3>
+              <h3 class="box-title">Tambah Biodata WNI</h3>
               <div class="box-tools pull-right">
                 <button class="btn btn-box-tool" data-widget="collapse" data-toggle="tooltip" title="Collapse"><i class="fa fa-minus"></i></button>
               </div>		
 			</div>
 			<div class="box-body">
-				<form action="<?php echo site_url('print_suket') ?>" method="post" onsubmit="clear()"> 
+				<form action="<?php echo site_url('action_biodata') ?>" method="post"> 
 					<table class="form_cetak">
 						<tr>
 							<td width="150"><label for="" class="control-label">NIK</label></td>
@@ -113,7 +116,7 @@
 						</tr>
 						<tr>
 							<td colspan="3">
-								<button type='submit'  name="cetak" class="btn btn-primary"><i class="fa fa-print"></i> Cetak</button>	
+								<button type='submit'  name="cetak" class="btn btn-primary"> Simpan</button>	
 							</td>
 						</tr>
 					</table>
@@ -122,32 +125,7 @@
 		</div>
 	</div>
 
-	<div class="col-md-5">
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title">Table History</h3>
-			</div>
-			<div class="box-body">
-				<table class="table table-bordered">
-					<thead>
-						<tr>
-							<th>No</th>
-							<th>No Surat</th>
-							<th>#</th>
-						</tr>
-					</thead>
-					<tbody class="history">
-						<tr><td colspan='3'>Tidak ada history</td></tr>
-					</tbody>
-				</table>
-			</div>
-		</div>
-	</div>
 </div>
-			<div class="foto">
-				
-			</div>
-
     <!-- InputMask -->
     <script src="<?php echo base_url() ?>assets/adminlte/plugins/input-mask/jquery.inputmask.js" type="text/javascript"></script>
     <script src="<?php echo base_url() ?>assets/adminlte/plugins/input-mask/jquery.inputmask.date.extensions.js" type="text/javascript"></script>
@@ -225,6 +203,10 @@
 				}
 			})
 		});
+	})
+
+	$(function(){
+		$(".notif").delay(2000).fadeOut(500);
 	})
 
 	$(function(){

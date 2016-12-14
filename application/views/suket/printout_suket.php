@@ -69,6 +69,18 @@
 		    text-align: center;
 		}
 
+		.pos {
+			margin-left : 350px;
+		}
+		.foto {
+			border-style: solid;
+			border-width: 1px;
+			width : 115px;
+			height: 140px;
+			position: absolute;
+			top : 350px;
+			left: 600px;
+		}
       </STYLE>
    </HEAD>
    <BODY>
@@ -290,10 +302,13 @@
 	            <P class="p11 ft2">Brebes, <?php echo tgl_indo(date('Y-m-d')) ?></P>
 	            <P class="p12 ft2">KEPALA DINAS KEPENDUDUKAN DAN</P>
 	            <P class="p13 ft2">PENCATATAN SIPIL KABUPATEN BREBES</P>
+	            <img src="<?php echo base_url('media/img/ttd.png') ?>" class="pos" width="250" height='150' alt="">
+	            <!--
 	            <P class="p14 ft8">Drs. ASMUNI, M.Si</P>
 	            <P class="p15 ft2">NIP. 195808281985121005</P>					
+				-->
 			</div>
-
+			<div class="foto" align="center">Pas Foto 3 x 4</div>
          </DIV>
       </DIV>
       <!-- #include virtual="/convert-pdf-to-html/includes/pdf-to-word-body-tag-between-content.htm" -->

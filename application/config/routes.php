@@ -50,7 +50,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Auth';
-$route['404_override'] = '';
+$route['404_override'] = 'error_page';
 $route['translate_uri_dashes'] = FALSE;
 
 $route['login'] = "auth/login";
@@ -62,4 +62,6 @@ $route['print_suket'] = "suket_controller/print_suket";
 $route['daftar_cetak'] = "suket_controller/daftar_cetak";
 $route['suket_json'] = "suket_controller/suket_json";
 $route['detail_cetak/(:num)'] = "suket_controller/detail_cetak/$1";
+$route['input_biodata'] = "suket_controller/input_biodata";
 $route['logout'] = "auth/logout";
+$route['action_biodata'] = "suket_controller/action_biodata";

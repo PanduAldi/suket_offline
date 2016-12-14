@@ -6,18 +6,18 @@
     <title><?php echo $title ?> | Suket Offline</title>
     <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
     <!-- Bootstrap 3.3.4 -->
-    <link href="http://localhost/assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <!-- Font Awesome Icons -->
-    <link href="http://localhost/assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() ?>assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
     <!-- Ionicons -->
     <link href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css" rel="stylesheet" type="text/css" />
     <!-- Theme style -->
-    <link href="http://localhost/assets/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() ?>assets/adminlte/dist/css/AdminLTE.min.css" rel="stylesheet" type="text/css" />
     <!-- datatables -->
-    <link rel="stylesheet" href="http://localhost/assets/datatables/dataTables.bootstrap.css">    
+    <link rel="stylesheet" href="<?php echo base_url() ?>assets/datatables/dataTables.bootstrap.css">    
     <!-- AdminLTE Skins. Choose a skin from the css/skins 
          folder instead of downloading all of them to reduce the load. -->
-    <link href="http://localhost/assets/adminlte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
+    <link href="<?php echo base_url() ?>assets/adminlte/dist/css/skins/_all-skins.min.css" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -27,9 +27,9 @@
     <![endif]-->
 
     <!-- jQuery 2.1.4 -->
-    <script src="http://localhost/assets/jQuery-2.1.4.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/jQuery-2.1.4.min.js"></script>
     <!-- Bootstrap 3.3.2 JS -->
-    <script src="http://localhost/assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 
   </head>
   <body class="skin-blue sidebar-mini">
@@ -64,7 +64,7 @@
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="http://localhost/assets/adminlte/dist/img/avatar5.png" class="img-circle" alt="User Image" />
+                    <img src="<?php echo base_url() ?>/assets/adminlte/dist/img/avatar5.png" class="img-circle" alt="User Image" />
                     <p>
                       <?php echo $this->session->userdata('fullname_u'); ?>
                       <small>Terakhir Login : <?php echo tgl_indo($this->session->userdata('last_login_u'))?></small>
@@ -126,14 +126,14 @@
 
 
     <!-- SlimScroll -->
-    <script src="http://localhost/assets/adminlte/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/adminlte/plugins/slimScroll/jquery.slimscroll.min.js" type="text/javascript"></script>
     <!-- FastClick -->
-    <script src='http://localhost/assets/adminlte/plugins/fastclick/fastclick.min.js'></script>
+    <script src='<?php echo base_url() ?>assets/adminlte/plugins/fastclick/fastclick.min.js'></script>
     <!-- AdminLTE App -->
-    <script src="http://localhost/assets/adminlte/dist/js/app.min.js" type="text/javascript"></script>
+    <script src="<?php echo base_url() ?>assets/adminlte/dist/js/app.min.js" type="text/javascript"></script>
     <!-- Datatable -->
-    <script src="http://localhost/assets/datatables/jquery.dataTables.min.js"></script>
-    <script src="http://localhost/assets/datatables/dataTables.bootstrap.min.js"></script>  
+    <script src="<?php echo base_url() ?>assets/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url() ?>assets/datatables/dataTables.bootstrap.min.js"></script>  
 
   </body>
 </html>
